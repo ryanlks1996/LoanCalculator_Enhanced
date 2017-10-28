@@ -29,16 +29,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkLoanStatus(View v){
-        double interest =  Double.parseDouble(editTextInterest.getText().toString());
+        double interestRate =  Double.parseDouble(editTextInterest.getText().toString());
         int salary = Integer.parseInt(editTextSalary.getText().toString());
         int price = Integer.parseInt(editTextPrice.getText().toString());
         int downPayment = Integer.parseInt(editTextDownPayment.getText().toString());
         int repayment = Integer.parseInt(editTextRepayment.getText().toString());
-        int interestRate = Integer.parseInt(editTextInterest.getText().toString());
 
-        double totalInterest = (price-downPayment) * interestRate * ((double)repayment);
+
+        double totalInterest = (price-downPayment) * interestRate * (repayment/12);
         double totalLoan = (price-downPayment)+totalInterest;
-        double monthPayment = totalLoan / interestRate;
+        double monthPayment = totalLoan / repayment;
 
         if(monthPayment > (salary*0.3))
             textViewDisplay.setText("Status: Reject");
@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void clearText(View v){
 
-        textViewDisplay.setText(" ");
-        editTextSalary.setText(" ");
-        editTextPrice.setText(" ");
+        textViewDisplay.setText("");
+        editTextSalary.setText("");
+        editTextPrice.setText("");
         editTextDownPayment.setText("");
         editTextRepayment.setText("");
         editTextInterest.setText("");
