@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Loan Calculator</string>
+    <string name="salary">Salary</string>
+    <string name="downPayment">Down Payment</string>
+    <string name="vehiclePrice">Vehicle Price</string>
+    <string name="repayment">Re-payment(Month)</string>
+    <string name="checkStatus">Check Status</string>
+    <string name="interest">Interest Rate (%)</string>
+    <string name="reset">Reset</string>
+</resources>
