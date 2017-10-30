@@ -1,5 +1,6 @@
 package my.edu.tarc.loancalculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -14,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
     EditText editTextDownPayment;
     EditText editTextRepayment;
     EditText editTextInterest;
+    public static final String DOWNPAYMENT = "MainActivity.downPayment" ;
+    public static final String REPAYMENT = "MainActivity.repayment" ;
+    public static final String INTERESTRATE = "MainActivity.interestRate" ;
+    public static final String MONTHPAYMENT = "MainActivity.monthPayment" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,18 @@ public class MainActivity extends AppCompatActivity {
             textViewDisplay.setText("Status: Reject");
         else
             textViewDisplay.setText("Status: Accept");
+
+
+
+
+        Intent intent = new Intent(this,ResultDisplay.class);
+        intent.putExtra(DOWNPAYMENT,downPayment);
+        intent.putExtra(REPAYMENT,repayment);
+        intent.putExtra(INTERESTRATE,interestRate);
+        intent.putExtra(MONTHPAYMENT,monthPayment);
+
+        startActivity(intent);
+
 
     }
     public void clearText(View v){
